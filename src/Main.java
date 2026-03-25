@@ -16,7 +16,7 @@ public class Main {
         if(n == 1){
             return n;
         }
-        return n * n  + recursion(n - 1 ); // Time complexity: BigO(n) , the function call itself n times
+        return n * n  + recursion(n - 1 ); // Time complexity: BigO(n) , the function calls itself n times
     }
 
     // Task 4
@@ -24,7 +24,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         if(n == 0){
             return ;
-        }                                    // Time complexity: BigO(n) , the function call itself n times
+        }                                    // Time complexity: BigO(n) , the function calls itself n times
         int seq = input.nextInt();
         recursion4(n - 1);
         System.out.print(seq + " ");
