@@ -16,7 +16,7 @@ public class Main {
         if(n == 1){
             return n;
         }
-        return n * n  + recursion(n - 1 ); // Time complexity: BigO(1)
+        return n * n  + recursion(n - 1 ); // Time complexity: BigO(n) , the function call itself n times
     }
 
     // Task 4
@@ -24,7 +24,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         if(n == 0){
             return ;
-        }
+        }                                    // Time complexity: BigO(n) , the function call itself n times
         int seq = input.nextInt();
         recursion4(n - 1);
         System.out.print(seq + " ");
@@ -35,7 +35,7 @@ public class Main {
         if(n == 0){
             return 1;
         }
-         return (int) (Math.pow(b , n) + recursion3(b , n - 1));
+         return (int) (Math.pow(b , n) + recursion3(b , n - 1));// Time complexity: BigO(n) , because the function calls itself n times
     }
 
     // Task 2
@@ -43,7 +43,7 @@ public class Main {
         if(n == 0){
             return 0;
         }
-        return x[n - 1] + recursion2(n - 1, x);
+        return x[n - 1] + recursion2(n - 1, x); // Time complexity: BigO(n) , because we go through each element in massive one time
     }
 }
 // { 3 , 2 , 3 , 4 , 5 }
