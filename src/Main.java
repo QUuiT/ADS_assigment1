@@ -94,6 +94,7 @@ public class Main {
 //        Stack<Integer> numbers = new Stack<>();
 //        fillStack(input , numbers,5);
 //        printReverse(numbers);
+        //Methods are below outside the main
 
         //Task 5
 //        Scanner input = new Scanner(System.in);
@@ -136,7 +137,7 @@ public class Main {
         System.out.println("Before heapify: " + Arrays.toString(arr));
         buildMinHeap(arr);
         System.out.println("Min heap:       " + Arrays.toString(arr));
-
+        // Methods are below outside the main
     }
 
     //Task 4
@@ -179,7 +180,6 @@ public class Main {
             heapify(arr, n, smallest);
         }
     }
-
     public static void buildMinHeap(int[] arr) {
         int n = arr.length;
 
@@ -187,4 +187,6 @@ public class Main {
             heapify(arr, n, i);
         }
     }
+
+    //The end
 }
