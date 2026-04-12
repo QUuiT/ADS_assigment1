@@ -96,39 +96,47 @@ public class Main {
 //        printReverse(numbers);
 
         //Task 5
-        Scanner input = new Scanner(System.in);
-        System.out.print("The number of Students:");
-        int n = input.nextInt();
-        Queue<Integer> students = new LinkedList<>();
-        Stack<Integer> samsas = new Stack<>();
+//        Scanner input = new Scanner(System.in);
+//        System.out.print("The number of Students:");
+//        int n = input.nextInt();
+//        Queue<Integer> students = new LinkedList<>();
+//        Stack<Integer> samsas = new Stack<>();
+//
+//        for (int i = 0; i < n; i++) {
+//            students.offer(input.nextInt());
+//        }
+//
+//        int[] arr = new int[n];
+//        for (int i = 0; i < n; i++) {
+//            arr[i] = input.nextInt();
+//        }
+//
+//        for (int i = n - 1; i >= 0; i--) {
+//            samsas.push(arr[i]);
+//        }
+//
+//        int failedAttempts = 0;
+//
+//        while (!students.isEmpty() && failedAttempts < students.size()) {
+//            if (students.peek().equals(samsas.peek())) {
+//                students.poll();
+//                samsas.pop();
+//                failedAttempts = 0;
+//            } else {
+//                students.offer(students.poll());
+//                failedAttempts++;
+//            }
+//        }
+//
+//        System.out.println("Unable to eat: " + students.size());
 
-        for (int i = 0; i < n; i++) {
-            students.offer(input.nextInt());
-        }
+        // Task 6
+        int[] arr = {7, 3, 10, 1, 5, 2};
 
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = input.nextInt();
-        }
+        System.out.println("Before heapify: " + Arrays.toString(arr));
+        buildMinHeap(arr);
+        System.out.println("Min heap:       " + Arrays.toString(arr));
 
-        for (int i = n - 1; i >= 0; i--) {
-            samsas.push(arr[i]);
-        }
-
-        int failedAttempts = 0;
-
-        while (!students.isEmpty() && failedAttempts < students.size()) {
-            if (students.peek().equals(samsas.peek())) {
-                students.poll();
-                samsas.pop();
-                failedAttempts = 0;
-            } else {
-                students.offer(students.poll());
-                failedAttempts++;
-            }
-        }
-
-        System.out.println("Unable to eat: " + students.size());
     }
 
     //Task 4
@@ -149,4 +157,34 @@ public class Main {
 //        fillStack(input, stack , n - 1);
 //    }
 
+    //Task 6
+    public static void heapify(int[] arr, int n, int i) {
+        int smallest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+
+        if (left < n && arr[left] < arr[smallest]) {
+            smallest = left;
+        }
+
+        if (right < n && arr[right] < arr[smallest]) {
+            smallest = right;
+        }
+
+        if (smallest != i) {
+            int temp = arr[i];
+            arr[i] = arr[smallest];
+            arr[smallest] = temp;
+
+            heapify(arr, n, smallest);
+        }
+    }
+
+    public static void buildMinHeap(int[] arr) {
+        int n = arr.length;
+
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arr, n, i);
+        }
+    }
 }
