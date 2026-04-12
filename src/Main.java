@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Main {
-
     public static void main(String[] args) {
 
         //Task 1
@@ -90,9 +89,64 @@ public class Main {
 //            }
 //        }
 
-        //Task 4
-        Scanner input = new Scanner(System.in);
-        
+//        //Task 4
+//        Scanner input = new Scanner(System.in);
+//        Stack<Integer> numbers = new Stack<>();
+//        fillStack(input , numbers,5);
+//        printReverse(numbers);
 
+        //Task 5
+        Scanner input = new Scanner(System.in);
+        System.out.print("The number of Students:");
+        int n = input.nextInt();
+        Queue<Integer> students = new LinkedList<>();
+        Stack<Integer> samsas = new Stack<>();
+
+        for (int i = 0; i < n; i++) {
+            students.offer(input.nextInt());
+        }
+
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = input.nextInt();
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            samsas.push(arr[i]);
+        }
+
+        int failedAttempts = 0;
+
+        while (!students.isEmpty() && failedAttempts < students.size()) {
+            if (students.peek().equals(samsas.peek())) {
+                students.poll();
+                samsas.pop();
+                failedAttempts = 0;
+            } else {
+                students.offer(students.poll());
+                failedAttempts++;
+            }
+        }
+
+        System.out.println("Unable to eat: " + students.size());
     }
+
+    //Task 4
+//    public static void printReverse (Stack<Integer> stack){
+//        if (stack.isEmpty()){
+//            return;
+//        }
+//        int top = stack.pop();
+//        System.out.print(top + " ");
+//        printReverse(stack);
+//    }
+//    public static void fillStack(Scanner input , Stack<Integer> stack , int n ){
+//        if (n == 0){
+//            return;
+//        }
+//        int number = input.nextInt();
+//        stack.push(number);
+//        fillStack(input, stack , n - 1);
+//    }
+
 }
