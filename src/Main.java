@@ -1,51 +1,37 @@
+import java.util.*;
 
-import java.util.Scanner;
 public class Main {
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n = input.nextInt();
-        int[] x = { 3 , 2 , 3 , 4 , 5};
-        System.out.print(recursion2(n , x));
+        ArrayList<ArrayList<Integer>> allLists = new ArrayList<>();
+        while( n != 0){
+            n--;
+            int d = input.nextInt();
+            ArrayList<Integer> numbers = new ArrayList<>();
+            for (int i = 0 ; i < d ; i++){
+                int number = input.nextInt();
+                numbers.add(number);
+            }
+            allLists.add(numbers);
+        }
+        int q = input.nextInt();
+        while (q != 0){
+            q--;
+            int x = input.nextInt();
+            int y = input.nextInt();
+            try {
+                System.out.println(allLists.get(x - 1).get(y-1));
+            } catch (IndexOutOfBoundsException e){
+                System.out.println("ERROR!");
+
+            }
+
+
+        }
+
     }
 
-    //Task 1
-    public static int recursion(int n){
-        if(n == 0){
-            return 1;
-        }
-        if(n == 1){
-            return n;
-        }
-        return n * n  + recursion(n - 1 ); // Time complexity: BigO(n) , the function calls itself n times
-    }
 
-    // Task 4
-    public static void recursion4(int n ){
-        Scanner input = new Scanner(System.in);
-        if(n == 0){
-            return ;
-        }                                    // Time complexity: BigO(n) , the function calls itself n times
-        int seq = input.nextInt();
-        recursion4(n - 1);
-        System.out.print(seq + " ");
-    }
-
-    // Task 3
-    public static int recursion3(int b, int n ){
-        if(n == 0){
-            return 1;
-        }
-         return (int) (Math.pow(b , n) + recursion3(b , n - 1));// Time complexity: BigO(n) , because the function calls itself n times
-    }
-
-    // Task 2
-    public static int recursion2(int n  , int[] x){
-        if(n == 0){
-            return 0;
-        }
-        return x[n - 1] + recursion2(n - 1, x); // Time complexity: BigO(n) , because we go through each element in massive one time
-    }
 }
-// { 3 , 2 , 3 , 4 , 5 }
-// input: 3
-// output: 1 + 2 + 3 = 6
