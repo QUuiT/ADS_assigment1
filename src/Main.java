@@ -3,6 +3,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
+        // Task 1
         Scanner input = new Scanner(System.in);
         int n = input.nextInt();
         ArrayList<ArrayList<Integer>> allLists = new ArrayList<>();
