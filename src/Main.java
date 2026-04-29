@@ -67,4 +67,5 @@ public class Main {
             System.out.println((arr.get(n/2) + arr.get(n/2 - 1)) / 2.0);
         }
     }
+    //
 }
