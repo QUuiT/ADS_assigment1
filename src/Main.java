@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         //Task 1
-//
+
 //        String firstWord = input.nextLine();
 //        String secondWord = input.nextLine();
 //
